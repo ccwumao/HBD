@@ -11,16 +11,22 @@ class Birthday(object):
         self.name = ''
     
     def input_string(self):
-        self.name = input('I hear it's your bday. What's your name?')
+        try: 
+            input = raw_input
+        except NameError: 
+            pass
+        self.name = input("I hear it's your bday. What's your name?")
         
     def hbd_string(self):
         text = ''
         for i in range(0,4):
-            text += 'Happy birthday'
+            text += 'Happy birthday '
             if i == 2:
-                text += 'dear {}'.format(self.name)
-            else:
+                text += 'dear {} '.format(self.name)
+            elif i == 3:
                 text += 'to you!'
+            else:
+                text += 'to you '
         return text
         
     def hbd_mac(self):
@@ -30,20 +36,22 @@ class Birthday(object):
         system('espeak {}'.format(self.hbd_string()))
         
     def run_it(self):
+        self.input_string()
         if self.os == 'Windows' or self.os == 'Linux':
             self.hbd_linux_windows()
-        if self.os == 'Darwin':
+        elif self.os == 'Darwin':
             self.hbd_mac()
         else:
-            print('Hey, looks like you're not on Windows, Linux, or \
-            a Mac. So I guess I'll just say Happy Birthday, {}!'.format(self.name))
+            print("Hey, looks like you're not on Windows, Linux, or \
+a Mac. So I guess I'll just say Happy Birthday, {}!".format(self.name))
         
     
-if __name__ == __main__:
+if __name__ == '__main__':
     BDay = Birthday()
     try:
-        Bday.run_it()
+        BDay.run_it()
     except:
-        print('I think you're missing espeak. If you're on Linux, try \
-        "sudo apt-get install espeak". For Windows it's at this address: \
-        http://sourceforge.net/projects/espeak/files/espeak/espeak-1.48/setup_espeakedit-1.48.03.exe')
+        print("I think you're missing espeak. If you're on Linux, try \
+sudo apt-get install espeak. For Windows it's at this address: \
+http://sourceforge.net/projects/espeak/files/espeak/espeak-1.48/setup_espeakedit-1.48.03.exe")
+        print("Anyway, Happy Birthday, {}!".format(BDay.name))
