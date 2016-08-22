@@ -17,6 +17,7 @@ class Birthday(object):
         except NameError: 
             pass
         self.name = input("I hear it's your bday. What's your name?")
+        print("Could you turn up your volume, please?")
         
     def hbd_string(self):
         # Create the text to be sung.
