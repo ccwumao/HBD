@@ -11,6 +11,7 @@ class Birthday(object):
         self.name = ''
     
     def input_string(self):
+        # Make sure it gets your name regardless of python version
         try: 
             input = raw_input
         except NameError: 
@@ -18,6 +19,7 @@ class Birthday(object):
         self.name = input("I hear it's your bday. What's your name?")
         
     def hbd_string(self):
+        # Create the text to be sung.
         text = ''
         for i in range(0,4):
             text += 'Happy birthday '
@@ -30,9 +32,11 @@ class Birthday(object):
         return text
         
     def hbd_mac(self):
+        # Sing for Macs
         system('say -v Pipe {}'.format(self.hbd_string()))
         
     def hbd_linux_windows(self):
+        # Sings for Linux and Windows
         system('espeak {}'.format(self.hbd_string()))
         
     def run_it(self):
