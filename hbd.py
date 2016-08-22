@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import time
 import platform
 from os import system
 
@@ -42,6 +43,7 @@ class Birthday(object):
         
     def run_it(self):
         self.input_string()
+        time.sleep(2)
         if self.os == 'Windows' or self.os == 'Linux':
             self.hbd_linux_windows()
         elif self.os == 'Darwin':
