@@ -44,7 +44,7 @@ class Birthday(object):
         self.name = input("I hear it's your bday. What's your name?")
         v = ''
         # If it's a Mac, let them pick from these voices
-        if self.os() == "Darwin":
+        if self.os == "Darwin":
             while True:
                 v = input("In what style would you like me to sing to you? Pick a number (1, 2, 3, or 4): \n1) Classical music \n2) Dirge-like \n3) Pomp & Circumstance \n4) Melodic Organ")
                 if v == 1:
