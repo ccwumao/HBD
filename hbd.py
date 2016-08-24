@@ -2,6 +2,7 @@
 import time
 import platform
 from os import system
+from subprocess import call
 
 class Birthday(object):
     """
@@ -10,6 +11,21 @@ class Birthday(object):
     def __init__(self):
         self.os = platform.system()
         self.name = ''
+        
+    def espeak_checker(self):
+        cmd = "where" if self.os == "Windows" else "which"#
+        rseponse = call([cmd, 'espeak'])
+        if rseponse == 1 and self.os == "Linux":
+            print("Looks like you don't have espeak installed. You can \
+            install it with sudo apt-get install espeak")
+            return False
+        elif rseponse == 1 and self.os == "Windows":
+            print("Looks like you don't have espeak installed. You can download it from \
+            http://sourceforge.net/projects/espeak/files/espeak/espeak-1.48/setup_espeakedit-1.48.03.exe \
+            but be sure to add it to your path when you're finished intalling it!")
+            return False
+        elif response == 0:
+            return True
     
     def input_string(self):
         # Make sure it gets your name regardless of python version
