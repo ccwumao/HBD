@@ -17,14 +17,14 @@ class Birthday(object):
         # Check to see if espeak is installed
         cmd = "where" if self.os == "Windows" else "which"
         # 1 if not installed 0 if installed
-        rseponse = call([cmd, 'espeak'])
+        response = call([cmd, 'espeak'])
         # Install instructions for Linux and return False
-        if rseponse == 1 and self.os == "Linux":
+        if response == 1 and self.os == "Linux":
             print("Looks like you don't have espeak installed. You can \
             install it with sudo apt-get install espeak")
             return False
         # Install instructions for Windows and return False
-        elif rseponse == 1 and self.os == "Windows":
+        elif response == 1 and self.os == "Windows":
             print("Looks like you don't have espeak installed. You can download it from http://sourceforge.net/projects/espeak/files/espeak/espeak-1.48/setup_espeakedit-1.48.03.exe but be sure to add it to your path when you're finished intalling it!")
             return False
         # Return True
