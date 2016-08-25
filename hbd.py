@@ -20,8 +20,7 @@ class Birthday(object):
         response = call([cmd, 'espeak'])
         # Install instructions for Linux and return False
         if response == 1 and self.os == "Linux":
-            print("Looks like you don't have espeak installed. You can \
-            install it with sudo apt-get install espeak")
+            print("Looks like you don't have espeak installed. You can install it with sudo apt-get install espeak")
             return False
         # Install instructions for Windows and return False
         elif response == 1 and self.os == "Windows":
@@ -49,19 +48,18 @@ class Birthday(object):
                 v = input("In what style would you like me to sing to you? Pick a number (1, 2, 3, or 4): \n1) Classical music \n2) Dirge-like \n3) Pomp & Circumstance \n4) Melodic Organ")
                 if v == 1:
                     self.voice = "Cellos"
-                    False
+                    break
                 elif v == 2:
                     self.voice = "Bad News"
-                    False
+                    break
                 elif v == 3:
                     self.voice = "Good News"
-                    False
+                    break
                 elif v == 4:
                     self.voice = "Pipe Organ"
-                    False
+                    break
                 else:
                     print("I said to pick 1, 2, 3, or 4. How hard is it to type one number? Let's try again...")
-                    True
         print("Could you turn up your volume, please?")
         
     def hbd_string(self):
