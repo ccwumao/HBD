@@ -3,6 +3,7 @@ import time
 import platform
 from os import system
 from subprocess import call
+from six.moves import input
 
 class Birthday(object):
     """
@@ -34,11 +35,6 @@ class Birthday(object):
             return True
     
     def input_string(self):
-        # Make sure it gets the input regardless of python version
-        try: 
-            input = raw_input
-        except NameError: 
-            pass
         # Ask for person's name
         self.name = input("I hear it's your bday. What's your name?")
         v = ''
@@ -77,11 +73,11 @@ class Birthday(object):
         
     def hbd_mac(self):
         # Sing for Macs
-        system('say -v {} {}'.format(self.voice, self.hbd_string()))
+        system('say -v {} "{}"'.format(self.voice, self.hbd_string()))
         
     def hbd_linux_windows(self):
         # Sings for Linux and Windows
-        system('espeak {}'.format(self.hbd_string()))
+        system('espeak -s 130 "{}"'.format(self.hbd_string()))
         
     def run_it(self):
         # Check if espeak is installed
