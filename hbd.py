@@ -42,16 +42,16 @@ class Birthday(object):
         if self.os == "Darwin":
             while True:
                 v = input("In what style would you like me to sing to you? Pick a number (1, 2, 3, or 4): \n1) Classical music \n2) Dirge-like \n3) Pomp & Circumstance \n4) Melodic Organ")
-                if v == 1:
+                if v == '1':
                     self.voice = "Cellos"
                     break
-                elif v == 2:
+                elif v == '2':
                     self.voice = "Bad News"
                     break
-                elif v == 3:
+                elif v == '3':
                     self.voice = "Good News"
                     break
-                elif v == 4:
+                elif v == '4':
                     self.voice = "Pipe Organ"
                     break
                 else:
